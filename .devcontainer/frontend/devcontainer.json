@@ -1,0 +1,36 @@
+{
+    "name": "Frontend DevContainer",
+    "context": "../../frontend",
+    "dockerFile": "Dockerfile",
+    // @see https://containers.dev/features
+    "features": {
+    },
+    "appPort": [3000],
+    "remoteUser": "vscode",
+    "updateRemoteUserUID": true,
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "anthropic.claude-code",
+                "saoudrizwan.claude-dev",
+                "streetsidesoftware.code-spell-checker",
+                "editorconfig.editorconfig",
+                "mhutchie.git-graph",
+                "github.copilot",
+                "github.copilot-chat",
+                "eamodio.gitlens",
+                "oderwat.indent-rainbow",
+                "bierner.markdown-mermaid",
+                "gruntfuggly.todo-tree"
+            ],
+            "terminal.integrated.defaultProfile.windows": "zsh (login)",
+            "terminal.integrated.profiles.linux": {
+                "zsh (login)": {
+                    "path": "zsh",
+                    "args": ["-l"]
+                }
+            }
+        }
+    },
+    "postStartCommand": ".devcontainer/postStartCommand.sh"
+}

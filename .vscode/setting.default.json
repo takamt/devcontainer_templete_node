@@ -1,0 +1,18 @@
+{
+    // You can customize the settings locally
+    // NOTE: DONOT COMMIT YOUR CHANGES
+
+    // default terminal
+    "terminal.integrated.defaultProfile.windows": "zsh (login)",
+    "terminal.integrated.profiles.linux": {
+        "zsh (login)": {
+            "path": "zsh",
+            "args": ["-l"]
+        }
+    },
+
+    // dotfiles
+    "dotfiles.repository": "https://github.com/[username]/[dotfiles].git", // NOTE: Set this to your dotfiles repository URL
+    "dotfiles.targetPath": "~/dotfiles", // ex: ~/dotfiles
+    "dotfiles.installCommand": "install.sh" // ex: install.sh
+}
