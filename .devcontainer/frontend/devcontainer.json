@@ -32,5 +32,9 @@
             }
         }
     },
-    "postStartCommand": ".devcontainer/postStartCommand.sh"
+    "initializeCommand": "echo 'Initializing...'",
+    "onCreateCommand": "echo 'Creating container...'",
+    "updateContentCommand": "echo 'Updating container...'",
+    "postCreateCommand": "echo 'Created container. \nWaiting for execution of postStartCommand...'",
+    "postStartCommand": "echo 'Executing postStartCommand...' && .devcontainer/postStartCommand.sh"
 }
