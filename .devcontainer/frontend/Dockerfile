@@ -7,7 +7,6 @@ RUN apt-get update \
     ca-certificates \
     unzip \
     git \
-    vim \
     curl \
     wget \
     sudo \
