@@ -40,7 +40,7 @@ This DevContainer supports automatic installation and configuration of custom do
 
 ### How to Configure Dotfiles
 
-Specify the dotfiles repository in VS Code settings (.vscode/setting.json)
+Specify the dotfiles repository in VS Code user settings in local window or in remote settings in remote window.
 
 ```json
 {
