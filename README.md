@@ -7,7 +7,6 @@ You can easily build a consistent development environment using VS Code DevConta
 
 - **Node.js 22.16.0 LTS** - Latest stable version of Node.js
 - **VS Code DevContainers** - Consistent development environment
-- **Zsh shell environment** - Automatic installation and configuration of zsh-related tools via dotfiles
 - **Dotfiles support** - Automatic installation and configuration of custom dotfiles
 
 ## 📋 Prerequisites
@@ -36,7 +35,6 @@ You can easily build a consistent development environment using VS Code DevConta
 ## 🔧 Dotfiles Configuration
 
 This DevContainer supports automatic installation and configuration of custom dotfiles.
-**It is designed with the assumption that zsh-related tools will be installed via dotfiles and the terminal will use zsh.**
 
 ### How to Configure Dotfiles
 
@@ -54,18 +52,16 @@ Specify the dotfiles repository in VS Code user settings in local window or in r
 ### Dotfiles Behavior
 
 1. **Automatic Installation**: Dotfiles are automatically installed when the container starts
-2. **Zsh Environment Setup**: Zsh-related tools are configured via dotfiles
 3. **Completion Wait**: `postStartCommand.sh` waits for dotfiles installation to complete
-4. **Zsh Switch**: After installation is complete, it automatically switches to Zsh shell (may take a few seconds on first container startup)
+4. **Shell Switch**: After installation is complete, it automatically switches to the shell specified in `devcontainer.env` (may take a few seconds on first container startup)
 
 ### Important Notes
 
-- **This DevContainer is designed with zsh as a prerequisite**
-- Zsh-related tools are installed via dotfiles, and the terminal uses zsh
-- The terminal will not automatically switch to Zsh until dotfiles installation is complete
+- The terminal will not automatically switch to the configured shell until dotfiles installation is complete
 - It waits until the `~/.dotfiles-installed` file is created
 - Even if you don't use custom dotfiles, you can start development with the default terminal environment
+- You can change the default shell by modifying the `SHELL` variable in [.devcontainer/devcontainer.env](.devcontainer/devcontainer.env)
 
 ## 📄 License
 
-This project is published under the MIT License. 
+This project is published under the MIT License.
