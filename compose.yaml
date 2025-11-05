@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+      target: development
+    env_file:
+      - development.env
+    volumes:
+      - .:/app
+    working_dir: /app
+    tty: true

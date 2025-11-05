@@ -1,0 +1,18 @@
+# for DevContainer: Additional configuration
+services:
+  app:
+    build:
+      target: devcontainer
+      args:
+        # remoteUser in devcontainer.json
+        USERNAME: vscode
+        UID: 10001
+        GID: 10001
+    env_file:
+      - .devcontainer/devcontainer.env
+    volumes:
+      # Persist VSCode server data (eg. extensions) across container restarts
+      - vscode_server_volume:/home/vscode/.vscode-server
+volumes:
+  vscode_server_volume:
+    driver: local

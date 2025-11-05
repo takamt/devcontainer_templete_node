@@ -1,15 +1,6 @@
 {
-    // You can customize the settings locally
-    // NOTE: DONOT COMMIT YOUR CHANGES
-
-    // default terminal
-    "terminal.integrated.defaultProfile.windows": "zsh (login)",
-    "terminal.integrated.profiles.linux": {
-        "zsh (login)": {
-            "path": "zsh",
-            "args": ["-l"]
-        }
-    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1,
 
     // dotfiles: [NOTE] This setting can only be applied in user settings in local window or in remote settings in remote window.
     "dotfiles.repository": "https://github.com/[username]/[dotfiles].git", // NOTE: Set this to your dotfiles repository URL
