@@ -4,7 +4,6 @@
 SHELL_PATH=$(command -v $SHELL)
 if [ -n "$SHELL_PATH" ]; then
     echo "$SHELL is installed. Switching to $SHELL..."
-    sudo chsh -s "$SHELL_PATH" "$USERNAME"
     exec "$SHELL"
 else
     echo "$SHELL is not installed. Staying with the default shell."
