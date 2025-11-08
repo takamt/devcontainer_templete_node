@@ -16,24 +16,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                // git
-                "eamodio.gitlens",
-                "mhutchie.git-graph",
-                "donjayamanne.githistory",
-                // editor
-                "shardulm94.trailing-spaces",
-                "irongeek.vscode-env",
-                "oderwat.indent-rainbow",
-                // previewers
-                "bierner.markdown-mermaid",
-                // checker
-                "streetsidesoftware.code-spell-checker",
-                "gruntfuggly.todo-tree",
-                // AI Code Assistants
-                "github.copilot",
-                "github.copilot-chat",
-                "anthropic.claude-code",
-                "saoudrizwan.claude-dev",
+
                 // linter/formatter
                 "editorconfig.editorconfig",
                 "biomejs.biome"
