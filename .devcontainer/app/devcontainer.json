@@ -23,14 +23,32 @@
             ]
         }
     },
-    // initializeCommand
-    // - This runs on the host machine before the container is created.
-    // - [NOTICE] This runs before not only creating, but restarting, or connecting to the container.
-    // - @see https://github.com/microsoft/vscode-remote-release/issues/9278
-    // - [NOTE] If you want to use the terminal after reopening, you need to close the current terminal and open a new one.
-    "initializeCommand": "echo 'Initializing...'",
-    "onCreateCommand": "echo 'Creating container...'",
-    "updateContentCommand": "echo 'Updating container...'",
-    "postCreateCommand": "echo 'Created container. \nWaiting for execution of postStartCommand...'",
-    "postStartCommand": "echo 'Executing postStartCommand...' && .devcontainer/postStartCommand.sh"
+    // [DevContainer Lifecycle]
+    // [host] Start process
+    // - initializeCommand:
+    //   - This runs on the host machine before the container is created.
+    //   - [NOTICE] This runs before not only creating, but restarting, or connecting to the container.
+    //   - @see https://github.com/microsoft/vscode-remote-release/issues/9278
+    //   - [NOTE] If you want to use the terminal after reopening, you need to close the current terminal and open a new one.
+    "initializeCommand": "echo '[host] initializeCommand...'",
+    // - after initializeCommand:
+    //   1. getting & building images
+    //   2. starting containers
+    // [host] End process on host machine
+    // [container] Start process
+    "onCreateCommand": "echo '[container] onCreateCommand...'",
+    "updateContentCommand": "echo '[container] updateContentCommand...'",
+    "postCreateCommand": "echo '[container] postCreateCommand...'",
+    // - after postCreateCommand:
+    //   1. install dotfiles, etc.
+    //   2. start the VS Code server
+    // - after starting the VS Code server:
+    //   - parallel execution of:
+    //     - postStartCommand > postAttachCommand
+    //     - installing VS Code extensions
+    "postStartCommand": "echo '[container] postStartCommand...'",
+    // - postAttachCommand:
+    //   - This runs every time you attach to the container (including after postStartCommand
+    "postAttachCommand": "echo '[container] postAttachCommand...' && .devcontainer/postAttachCommand.sh"
+    // [container] End process
 }
