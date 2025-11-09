@@ -11,6 +11,16 @@ FROM base AS production
 FROM base AS development
 # TODO: Add development specific steps here
 
+RUN apt-get update \
+    && apt-get --no-install-recommends install -y \
+    locales \
+    # cleanup apt
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    # locale settings
+    && sed -i -E 's/# (ja_JP.UTF-8)/\1/' /etc/locale.gen \
+    && locale-gen \
+    && update-locale LANG=ja_JP.UTF-8
 
 # stage: DevContainer
 FROM base AS devcontainer
