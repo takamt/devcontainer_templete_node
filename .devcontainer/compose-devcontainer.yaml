@@ -11,8 +11,12 @@ services:
     env_file:
       - .devcontainer/devcontainer.env
     volumes:
-      # Persist VSCode server data (eg. extensions) across container restarts
+      # VSCode server data (eg. extensions)
       - vscode_server_volume:/home/vscode/.vscode-server
+      # Command history
+      - command_history:/command_history
 volumes:
   vscode_server_volume:
+    driver: local
+  command_history:
     driver: local
