@@ -7,6 +7,6 @@ services:
     env_file:
       - development.env
     volumes:
-      - .:/app
-    working_dir: /app
+      - .:/workspace
+    working_dir: /workspace/app
     tty: true

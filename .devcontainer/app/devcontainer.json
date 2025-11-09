@@ -7,7 +7,7 @@
         "../compose-devcontainer.yaml"
     ],
     "service": "app",
-    "workspaceFolder": "/app",
+    "workspaceFolder": "/workspace/app",
     "remoteUser": "vscode", // use non-root user
     "updateRemoteUserUID": true,
     // @see https://containers.dev/features
@@ -59,6 +59,6 @@
     "postStartCommand": "echo '[container] postStartCommand...'",
     // - postAttachCommand:
     //   - This runs every time you attach to the container (including after postStartCommand
-    "postAttachCommand": "echo '[container] postAttachCommand...' && .devcontainer/postAttachCommand.sh"
+    "postAttachCommand": "echo '[container] postAttachCommand...' && ${containerWorkspaceFolder}/../.devcontainer/postAttachCommand.sh"
     // [container] End process
 }
