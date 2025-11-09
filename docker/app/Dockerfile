@@ -23,7 +23,7 @@ RUN apt-get update \
     && update-locale LANG=ja_JP.UTF-8
 
 # stage: DevContainer
-FROM base AS devcontainer
+FROM development AS devcontainer
 
 RUN apt-get update \
     && apt-get --no-install-recommends install -y \
