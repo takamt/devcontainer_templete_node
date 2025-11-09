@@ -30,30 +30,8 @@ RUN apt-get update \
     openssh-client \
     ca-certificates \
     unzip \
-    git \
     curl \
     wget \
-    sudo \
     # cleanup apt
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-## Create user for DevContainer
-ARG USERNAME
-ARG UID
-ARG GID
-
-ENV USERNAME ${USERNAME}
-ENV UID ${UID}
-ENV GID ${GID}
-
-RUN groupadd --gid $GID $USERNAME \
-    && useradd --uid $UID --gid $GID -m $USERNAME \
-    # Add sudo to the user
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-    && chmod 0440 /etc/sudoers.d/$USERNAME \
-    # Setup VS Code Server
-    && mkdir -p /home/$USERNAME/.vscode-server \
-    && chown -R $UID:$GID /home/$USERNAME/.vscode-server
-
-USER $USERNAME
