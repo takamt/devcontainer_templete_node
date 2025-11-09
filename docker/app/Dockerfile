@@ -11,13 +11,15 @@ FROM base AS production
 FROM base AS development
 # TODO: Add development specific steps here
 
-RUN apt-get update \
+RUN \
+    # apt packages
+    apt-get update \
     && apt-get --no-install-recommends install -y \
     locales \
-    # cleanup apt
+    ## cleanup apt
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
-    # locale settings
+    ## locale settings
     && sed -i -E 's/# (ja_JP.UTF-8)/\1/' /etc/locale.gen \
     && locale-gen \
     && update-locale LANG=ja_JP.UTF-8
